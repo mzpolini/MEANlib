@@ -1,9 +1,10 @@
 var config = require('./config'),
 	express = require('express'),
-	morgan = require('morgan');
-	compress = require('compression');
-	bodyParser = require('body-parser');
-	methodOveride = require('method-override');
+	morgan = require('morgan'),
+	compress = require('compression'),
+	bodyParser = require('body-parser'),
+	methodOveride = require('method-override'),
+	session = require('express-session');
 
 module.exports = function() {
 	var app = express();
@@ -28,7 +29,7 @@ module.exports = function() {
 		secret: config.sessionSecret
 	}));
 
-	app.set('views', '.app/views');
+	app.set('views', './app/views');
 	app.set('view engine', 'ejs');
 
 	require('../app/routes/index.server.routes.js')(app);
