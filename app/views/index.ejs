@@ -4,8 +4,8 @@
 		<title><%= title %></title>
 	</head>
 	<body>
-		<% if (userFullName) { %>
-			<h2>Hello <%=userFullName%> </h2>
+		<% if (user) { %>
+			<h2>Hello <%= userFullName %> </h2>
 			<a href="/signout">Sign Out</a>
 			<h5>You have successfully signed in</h5>
 		<% } else { %>
@@ -13,12 +13,25 @@
 			<a href="/signin">Sign In</a>
 		<% } %>
 
-		<section>
-				<input type="text" id="text1" ng-model="name">
-				<input type="text" id="text2" ng-model="name">
-		</section>
+		<section ng-view></section>
+
+		<!-- <section ng-view></section> -->
+
+		<script type="text/javascript">
+			window.user = <% - user || 'null' %>;
+		</script>
+
 
 		<script type="text/javascript" src="/lib/angular/angular.js"></script>
+		<script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
+
+		<script type="text/javascript" src="/example/example.client.module.js"></script>
+		<script type="text/javascript" src="/example/controllers/example.client.controller.js"></script>
+		<script type="text/javascript" src="/example/config/example.client.routes.js"></script>
+
+		<script type="text/javascript" src="/users/services/users.client.module.js"></script>
+		<script type="text/javascript" src="/users/services/authentication.client.service.js"></script>
+
 		<script type="text/javascript" src="/application.js"></script>
 	</body>
 </html>

@@ -72,6 +72,15 @@ exports.signout = function(req, res) {
   res.redirect('/');
 };
 
+exports.requiresLogin=function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    return res.status(401).send({
+      message: 'User is not logged in'
+    });
+  }
+  next();
+};
+
 // exports.create=function(req, res, next) {
 //     var user = new User(req.body);
 //
