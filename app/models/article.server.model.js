@@ -1,26 +1,32 @@
-var mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
+// Invoke 'strict' JavaScript mode
+'use strict';
 
-var ArticleSchema = new Schema ({
-  created: {
-    type: Date,
-    default: Date.now
-  },
-  title: {
-    type: String,
-    default: '',
-    trim: true,
-    required: 'Title cannot be blank'
-  },
-  content: {
-    type: String,
-    default: '',
-    trim: true
-  },
-  creator: {
-    type: Schema.ObjectID,
-    ref: 'User'
-  }
+// Load the module dependencies
+var mongoose = require('mongoose'),
+	Schema = mongoose.Schema;
+
+// Define a new 'ArticleSchema'
+var ArticleSchema = new Schema({
+	created: {
+		type: Date,
+		default: Date.now
+	},
+	title: {
+		type: String,
+		default: '',
+		trim: true,
+		required: 'Title cannot be blank'
+	},
+	content: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	creator: {
+		type: Schema.ObjectId,
+		ref: 'User'
+	}
 });
 
-mongoose.model('Article',ArticleSchema);
+// Create the 'Article' model out of the 'ArticleSchema'
+mongoose.model('Article', ArticleSchema);

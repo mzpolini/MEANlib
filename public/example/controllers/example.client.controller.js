@@ -1,6 +1,10 @@
-	angular.module('example').controller('ExampleController', ['$scope',
-	'Authentication',
+// Invoke 'strict' JavaScript mode
+'use strict';
+
+// Create the 'example' controller
+angular.module('example').controller('ExampleController', ['$scope', 'Authentication',
 	function($scope, Authentication) {
-		$scope.name = Authentication.user ? Authentication.user.fullName : 'MEAN Application';
+		// Expose the authentication service
+		$scope.authentication = Authentication;
 	}
-	]);
+]);
