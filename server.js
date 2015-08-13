@@ -12,8 +12,8 @@ var mongoose = require('./config/mongoose'),
 // Create a new Mongoose connection instance
 var db = mongoose();
 
-// Create a new Express application instance
-var app = express();
+// Create a new Express application instance and pass database connection
+var app = express(db);
 
 // Configure the Passport middleware
 var passport = passport();
