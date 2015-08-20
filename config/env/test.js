@@ -3,7 +3,7 @@
 
 // Set the 'test' environment configuration object
 module.exports = {
-	db: 'mongodb://localhost/mean-test',
+	db: 'mongodb://localhost/mean-book-test',
 	sessionSecret: 'testSessionSecret',
 	facebook: {
 		clientID: 'Facebook Application ID',
